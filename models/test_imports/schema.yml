@@ -1,0 +1,6 @@
+---
+version: 2
+models:
+- name: "test_imports__order_status_tracking"
+  tags:
+  - "prophecy_temp"

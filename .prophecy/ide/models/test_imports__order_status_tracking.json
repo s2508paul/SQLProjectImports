@@ -1,0 +1,131 @@
+{
+  "id" : "test_imports__order_status_tracking",
+  "metainfo" : {
+    "label" : "test_imports__order_status_tracking",
+    "autoLayout" : true,
+    "staleState" : "none",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "graphConfig" : {
+      "entityConfig" : {
+        "alias" : "\"aa\"",
+        "materialized" : "table",
+        "database" : "\"var(\"hello\")\"",
+        "schema" : "\"aa\"",
+        "type" : "ModelConfig"
+      }
+    },
+    "version" : 3
+  },
+  "processes" : {
+    "Y4gcXqs2d5SxTp5FQOf5v$$O5pdf_yMTVX2Y4JDsncYD" : {
+      "id" : "Y4gcXqs2d5SxTp5FQOf5v$$O5pdf_yMTVX2Y4JDsncYD",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "order_status_tracking",
+        "phase" : 0
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "\nSELECT *\n\nFROM ordered_order_tracking\n\n",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "ZgxvO3lftTLxdaYrQGzcM$$3X2JR94O9QaS7XvgoyCUH",
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "VfEMQx3Wuvs4eR51hhOz5$$xLCL_axluNQTyv-Bkb_cJ",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "lbVspIc0z2uw4i3s5pwIK$$44VmtA4YFOwwaD9C1cwwc" : {
+      "id" : "lbVspIc0z2uw4i3s5pwIK$$44VmtA4YFOwwaD9C1cwwc",
+      "component" : "OrderBy",
+      "metadata" : {
+        "label" : "ordered_order_tracking",
+        "x" : -140,
+        "y" : -400,
+        "phase" : 0
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "orders" : [ {
+          "expression" : {
+            "expression" : "id"
+          },
+          "sortType" : "asc"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "m26J-9nFMrDzXzTRn5FSj$$y3jgg7xY58EXXrKg3t_Ah",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "3JTkGtmdydMAwTRd9fYo0$$S5JINNoedUdVE1LO3CgJh",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    },
+    "dAuEJFXLcyuwndfFwFCaD$$COVJ6urk5pGbAiUqzacOO" : {
+      "id" : "dAuEJFXLcyuwndfFwFCaD$$COVJ6urk5pGbAiUqzacOO",
+      "component" : "Source",
+      "metadata" : {
+        "label" : "order_tracking_bigquery",
+        "x" : -420,
+        "y" : -400,
+        "phase" : 0
+      },
+      "properties" : {
+        "table" : {
+          "name" : "orders",
+          "sourceType" : "Table",
+          "sourceName" : "prophecy_field_jaffle_shop",
+          "alias" : ""
+        },
+        "writeOptions" : {
+          "writeMode" : "overwrite"
+        }
+      },
+      "ports" : {
+        "inputs" : [ ],
+        "outputs" : [ {
+          "id" : "Er90Vtl76xYd04uqHllv4$$NbaofnCXnphr5X-y3pVDX",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "xh3AKEY578iQbFukJn5YJ$$TVa06Df0Z7kTm3r7ubQvX",
+    "source" : "lbVspIc0z2uw4i3s5pwIK$$44VmtA4YFOwwaD9C1cwwc",
+    "sourcePort" : "3JTkGtmdydMAwTRd9fYo0$$S5JINNoedUdVE1LO3CgJh",
+    "target" : "Y4gcXqs2d5SxTp5FQOf5v$$O5pdf_yMTVX2Y4JDsncYD",
+    "targetPort" : "ZgxvO3lftTLxdaYrQGzcM$$3X2JR94O9QaS7XvgoyCUH",
+    "isWireless" : false
+  }, {
+    "id" : "0kS7dfuJtfvmsDqW98Roe$$M9RYEZJARKLg0d2jGTMcV",
+    "source" : "dAuEJFXLcyuwndfFwFCaD$$COVJ6urk5pGbAiUqzacOO",
+    "sourcePort" : "Er90Vtl76xYd04uqHllv4$$NbaofnCXnphr5X-y3pVDX",
+    "target" : "lbVspIc0z2uw4i3s5pwIK$$44VmtA4YFOwwaD9C1cwwc",
+    "targetPort" : "m26J-9nFMrDzXzTRn5FSj$$y3jgg7xY58EXXrKg3t_Ah",
+    "isWireless" : false
+  } ],
+  "component" : "Model"
+}

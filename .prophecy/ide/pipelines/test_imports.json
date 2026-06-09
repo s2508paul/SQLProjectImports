@@ -1,0 +1,137 @@
+{
+  "id" : "test_imports",
+  "metainfo" : {
+    "label" : "test_imports",
+    "autoLayout" : false,
+    "version" : 1,
+    "configuration" : {
+      "schema" : {
+        "type" : "record",
+        "fields" : [ ]
+      }
+    },
+    "isTranspiledPipeline" : false,
+    "publishDiagnosticMetrics" : false,
+    "processesVsModelFiles" : {
+      "Y4gcXqs2d5SxTp5FQOf5v$$O5pdf_yMTVX2Y4JDsncYD" : "models/test_imports/test_imports__order_status_tracking.sql",
+      "lbVspIc0z2uw4i3s5pwIK$$44VmtA4YFOwwaD9C1cwwc" : "models/test_imports/test_imports__order_status_tracking.sql",
+      "dAuEJFXLcyuwndfFwFCaD$$COVJ6urk5pGbAiUqzacOO" : "models/test_imports/test_imports__order_status_tracking.sql"
+    }
+  },
+  "processes" : {
+    "dAuEJFXLcyuwndfFwFCaD$$COVJ6urk5pGbAiUqzacOO" : {
+      "id" : "dAuEJFXLcyuwndfFwFCaD$$COVJ6urk5pGbAiUqzacOO",
+      "component" : "Dataset",
+      "metadata" : {
+        "label" : "order_tracking_bigquery",
+        "x" : -420,
+        "y" : -400,
+        "phase" : 0,
+        "comment" : "Loads and overwrites order data from the jaffle shop source for downstream processing.",
+        "autoUpdateComment" : true
+      },
+      "properties" : {
+        "table" : {
+          "name" : "orders",
+          "sourceType" : "Table",
+          "sourceName" : "prophecy_field_jaffle_shop",
+          "alias" : ""
+        },
+        "writeOptions" : {
+          "writeMode" : "overwrite"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "PyYcuGV0b-y8n_rzWiEob$$vkLvN4HGPfx25yUyGjyW8",
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "Er90Vtl76xYd04uqHllv4$$NbaofnCXnphr5X-y3pVDX",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "lbVspIc0z2uw4i3s5pwIK$$44VmtA4YFOwwaD9C1cwwc" : {
+      "id" : "lbVspIc0z2uw4i3s5pwIK$$44VmtA4YFOwwaD9C1cwwc",
+      "component" : "OrderBy",
+      "metadata" : {
+        "label" : "ordered_order_tracking",
+        "x" : -140,
+        "y" : -400,
+        "phase" : 0,
+        "comment" : "Sorts order tracking records by their ID for easier review and monitoring.",
+        "autoUpdateComment" : true
+      },
+      "properties" : {
+        "columnsSelector" : [ ],
+        "orders" : [ {
+          "expression" : {
+            "expression" : "id"
+          },
+          "sortType" : "asc"
+        } ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "m26J-9nFMrDzXzTRn5FSj$$y3jgg7xY58EXXrKg3t_Ah",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "3JTkGtmdydMAwTRd9fYo0$$S5JINNoedUdVE1LO3CgJh",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    },
+    "Y4gcXqs2d5SxTp5FQOf5v$$O5pdf_yMTVX2Y4JDsncYD" : {
+      "id" : "Y4gcXqs2d5SxTp5FQOf5v$$O5pdf_yMTVX2Y4JDsncYD",
+      "component" : "Dataset",
+      "metadata" : {
+        "label" : "order_status_tracking",
+        "x" : 100,
+        "y" : -400,
+        "phase" : 0,
+        "comment" : "Loads and overwrites the latest data from the 'aa' table for further processing.",
+        "autoUpdateComment" : true
+      },
+      "properties" : {
+        "table" : {
+          "name" : "aa",
+          "sourceType" : "Table",
+          "sourceName" : "var_hello__aa",
+          "alias" : ""
+        },
+        "writeOptions" : {
+          "writeMode" : "overwrite"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "ZgxvO3lftTLxdaYrQGzcM$$3X2JR94O9QaS7XvgoyCUH",
+          "slug" : "in"
+        } ],
+        "outputs" : [ {
+          "id" : "VfEMQx3Wuvs4eR51hhOz5$$xLCL_axluNQTyv-Bkb_cJ",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    }
+  },
+  "connections" : [ {
+    "id" : "0kS7dfuJtfvmsDqW98Roe$$M9RYEZJARKLg0d2jGTMcV",
+    "source" : "dAuEJFXLcyuwndfFwFCaD$$COVJ6urk5pGbAiUqzacOO",
+    "sourcePort" : "Er90Vtl76xYd04uqHllv4$$NbaofnCXnphr5X-y3pVDX",
+    "target" : "lbVspIc0z2uw4i3s5pwIK$$44VmtA4YFOwwaD9C1cwwc",
+    "targetPort" : "m26J-9nFMrDzXzTRn5FSj$$y3jgg7xY58EXXrKg3t_Ah"
+  }, {
+    "id" : "xh3AKEY578iQbFukJn5YJ$$TVa06Df0Z7kTm3r7ubQvX",
+    "source" : "lbVspIc0z2uw4i3s5pwIK$$44VmtA4YFOwwaD9C1cwwc",
+    "sourcePort" : "3JTkGtmdydMAwTRd9fYo0$$S5JINNoedUdVE1LO3CgJh",
+    "target" : "Y4gcXqs2d5SxTp5FQOf5v$$O5pdf_yMTVX2Y4JDsncYD",
+    "targetPort" : "ZgxvO3lftTLxdaYrQGzcM$$3X2JR94O9QaS7XvgoyCUH"
+  } ],
+  "component" : "Pipeline"
+}

@@ -1,0 +1,49 @@
+{
+  "id" : "aa",
+  "metainfo" : {
+    "label" : "aa",
+    "autoLayout" : false,
+    "staleState" : "file",
+    "sourceSuggestions" : {
+      "sources" : [ ]
+    },
+    "version" : 3
+  },
+  "processes" : {
+    "aa##PCo8WX3J" : {
+      "id" : "aa##PCo8WX3J",
+      "component" : "TargetModel",
+      "metadata" : {
+        "label" : "aa",
+        "x" : 20,
+        "y" : 20,
+        "phase" : 0
+      },
+      "properties" : {
+        "customQueryDisabled" : true,
+        "customQuery" : false,
+        "incrementalEditorDisabled" : true,
+        "query" : "",
+        "isModel" : true,
+        "incrementalKey" : false,
+        "incremental" : {
+          "expression" : "true"
+        }
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "ojKNUAze",
+          "slug" : "in0"
+        } ],
+        "outputs" : [ {
+          "id" : "uJXjCmjo",
+          "slug" : "out"
+        } ],
+        "isCustomOutputSchema" : false,
+        "autoUpdateOnRun" : false
+      }
+    }
+  },
+  "connections" : [ ],
+  "component" : "Model"
+}

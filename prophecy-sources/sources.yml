@@ -1,0 +1,13 @@
+---
+version: 2
+sources:
+- name: "var_hello__aa"
+  database: "var(\"hello\")"
+  schema: "aa"
+  tables:
+  - name: "aa"
+    config:
+      tags:
+      - "pipeline:test_imports"
+    columns: []
+    type: "table"

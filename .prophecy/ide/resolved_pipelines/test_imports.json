@@ -1,0 +1,53 @@
+{
+  "id" : "test_imports",
+  "metainfo" : {
+    "label" : "test_imports",
+    "autoLayout" : false,
+    "version" : 1,
+    "configuration" : {
+      "schema" : {
+        "type" : "record",
+        "fields" : [ ]
+      }
+    },
+    "isTranspiledPipeline" : false,
+    "publishDiagnosticMetrics" : false,
+    "processesVsModelFiles" : {
+      "Y4gcXqs2d5SxTp5FQOf5v$$O5pdf_yMTVX2Y4JDsncYD" : "models/test_imports/test_imports__order_status_tracking.sql",
+      "lbVspIc0z2uw4i3s5pwIK$$44VmtA4YFOwwaD9C1cwwc" : "models/test_imports/test_imports__order_status_tracking.sql",
+      "dAuEJFXLcyuwndfFwFCaD$$COVJ6urk5pGbAiUqzacOO" : "models/test_imports/test_imports__order_status_tracking.sql"
+    }
+  },
+  "processes" : {
+    "Y4gcXqs2d5SxTp5FQOf5v$$O5pdf_yMTVX2Y4JDsncYD" : {
+      "id" : "Y4gcXqs2d5SxTp5FQOf5v$$O5pdf_yMTVX2Y4JDsncYD",
+      "component" : "Model",
+      "metadata" : {
+        "label" : "test_imports__order_status_tracking",
+        "phase" : 0
+      },
+      "properties" : {
+        "modelName" : "test_imports__order_status_tracking"
+      },
+      "visualMetaInfo" : {
+        "visualProcessIds" : [ "Y4gcXqs2d5SxTp5FQOf5v$$O5pdf_yMTVX2Y4JDsncYD", "lbVspIc0z2uw4i3s5pwIK$$44VmtA4YFOwwaD9C1cwwc", "dAuEJFXLcyuwndfFwFCaD$$COVJ6urk5pGbAiUqzacOO" ],
+        "type" : "table",
+        "isTemporaryTable" : false,
+        "lastNodeProcessIds" : [ "Y4gcXqs2d5SxTp5FQOf5v$$O5pdf_yMTVX2Y4JDsncYD" ]
+      },
+      "ports" : {
+        "inputs" : [ {
+          "id" : "test_imports__order_status_tracking_in_0",
+          "slug" : "in_0"
+        } ],
+        "outputs" : [ {
+          "id" : "test_imports__order_status_tracking_out_0",
+          "slug" : "out_0"
+        } ],
+        "isCustomOutputSchema" : false
+      }
+    }
+  },
+  "connections" : [ ],
+  "component" : "Pipeline"
+}
